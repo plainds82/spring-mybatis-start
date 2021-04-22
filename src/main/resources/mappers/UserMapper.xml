@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.test.mybatis2.dao.UserDAO">
+    <select id="selectUsers" parameterType="com.test.mybatis2.dto.UserDTO" resultType="com.test.mybatis2.dto.UserDTO">
+        SELECT id, title, description, created, author, profile
+        FROM topic
+        <if test='author != null and author != ""'>
+            WHERE `author` = #{author}
+        </if>
+    </select>
+</mapper>
